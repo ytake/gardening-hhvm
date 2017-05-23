@@ -138,6 +138,11 @@ class Builder
       s.path = scriptDir + "/server-starter.sh"
     end
 
+    # For HHVM settings
+    config.vm.provision "shell" do |s|
+      s.path = scriptDir + "/hhvm-conf.sh"
+    end
+
     # Configure All Of The Server Environment Variables
     config.vm.provision "shell" do |s|
       s.path = scriptDir + "/clear-variables.sh"
@@ -150,10 +155,10 @@ class Builder
           s.args = [var["key"], var["value"]]
         end
       end
-      config.vm.provision "shell" do |s|
-        s.path = scriptDir + "/hhvm-conf.sh"
-        s.inline = "/bin/systemctl restart hhvm"
-      end
+    end
+
+    config.vm.provision "shell" do |s|
+      s.inline = "systemctl restart hhvm"
     end
 
     # Update Composer On Every Provision

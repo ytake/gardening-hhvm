@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo systemctl restart network
+systemctl restart networking.service
