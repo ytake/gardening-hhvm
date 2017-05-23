@@ -151,6 +151,7 @@ class Builder
         end
       end
       config.vm.provision "shell" do |s|
+        s.path = scriptDir + "/hhvm-conf.sh"
         s.inline = "/bin/systemctl restart hhvm"
       end
     end
