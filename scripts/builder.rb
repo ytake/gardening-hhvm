@@ -165,9 +165,5 @@ class Builder
     config.vm.provision "shell" do |s|
       s.inline = "/usr/local/bin/composer self-update"
     end
-
-    config.vm.provision "shell" do |s|
-      s.path = scriptDir + "/network-restart.sh"
-    end
   end
 end

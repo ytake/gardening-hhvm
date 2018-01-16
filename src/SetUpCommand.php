@@ -46,7 +46,7 @@ class SetUpCommand extends Command
         $this->file = $file;
         $this->current = getcwd();
         $this->projectName = basename($this->current);
-        $this->defaultName = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $this->defaultProjectName)));
+        $this->defaultProjectName = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $this->projectName)));
     }
 
     /**
